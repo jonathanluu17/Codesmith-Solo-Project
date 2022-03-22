@@ -1,12 +1,18 @@
 const path = require('path');
 const express = require('express');
-
+const mongoose = require('mongoose');
 const app = express();
 const PORT = 3000;
 
 
+// connect to mongoose
+mongoose.connect('mongodb+srv://jonathanluu17:17jonathanluu@cluster0.xwxsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connection.once('open', () => {
+  console.log('Connected to Database');
+})
+
 // require routers
-const showRouter = require('./routes/shows.js');
+const showRouter = require('./routes/shows');
 
 
 // parse request body
@@ -14,16 +20,17 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 
+
 // route handlers
 
 // get all show data
 // router also handles our post and delete requests to add and remove shows
-app.use('/showData', showRouter)
+app.use('/showdata', showRouter)
 
 
 // route handler for main app
 app.get('/', (req,res) => {
-    return res.sendFile(path.join(__dirname,"./index.html"));
+    return res.sendFile(path.join(__dirname,"../index.html"));
 })
 
 

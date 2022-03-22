@@ -3,26 +3,12 @@ const showController = require('../controllers/showController');
 const router = express.Router();
 
 // initial show request route
-router.get('/',
-    showController.getShows,
-    (req, res) => {
-        // send back our shows object
-        return res.status(200).json({shows: res.locals.shows});
-    }
-);
+router.get('/', showController.getShows);
 
 // add show post request
-router.post('/:name', showController.getShows, showController.addShow,
-    (req, res) => {
-        return res.status(200).json({shows: res.locals.shows});
-    }
-);
+router.post('/', showController.addShow);
 
 // add show delete request
-route.delete('/:name', showController.getShows, showController.removeShow,
-    (req, res) => {
-        return res.status(200).json({shows: res.locals.shows});
-    }
-);
+router.delete('/:showTitle', showController.removeShow,);
 
 module.exports = router;
