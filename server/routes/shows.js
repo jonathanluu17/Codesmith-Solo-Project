@@ -6,9 +6,9 @@ const router = express.Router();
 router.get('/', showController.getShows);
 
 // add show post request
-router.post('/', showController.addShow);
+router.post('/newshow', showController.addShow);
 
 // add show delete request
-router.delete('/:showTitle', showController.removeShow,);
+router.delete('/:showtitle', showController.removeShow,);
 
 module.exports = router;

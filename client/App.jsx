@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // import components & stylesheets here
-
+import Shows from './components/Shows';
+import NewShow from './components/NewShow';
 
 
 class App extends Component {
@@ -21,9 +22,12 @@ class App extends Component {
 
         //bind methods here
         this.sortShows = this.sortShows.bind(this);
+        this.addShow = this.addShow.bind(this);
+        this.deleteShow = this.deleteShow.bind(this);
     }
 
     // on mount, send fetch request to our database to pull the shows
+    // set our state within fetch request
     componentDidMount() {
         fetch('/showdata/', {
             method: 'GET',
@@ -44,10 +48,10 @@ class App extends Component {
                 other
             })
         })
-        .catch(err => console.log('App.componentDidMount: get shows: ERROR: ', err));
+        .catch(err => console.log('App.componentDidMount: getshows: ERROR: ', err));
     }
 
-
+    // add methods
     sortShows(showArray) {
         const sorted = {
             netflix: [],
@@ -63,6 +67,62 @@ class App extends Component {
         };
         return sorted;
     };
-}
 
+
+    addShow(allShows) {
+        return this.setState({ allShows });
+    }
+
+    deleteShow(allShows) {
+        return this.setState({ allShows });
+    }
+
+    // render
+    render () {
+        // show a loading page until shows are fetched
+        if (!this.state.fetchedShows) return (
+            <div>
+                <h1>Loading data, please wait...</h1>
+            </div>
+        );
+        const sharedProps = {
+            allShows: this.state.allShows,
+            netflix: this.state.netflix,
+            hulu: this.state.hulu,
+            hbo: this.state.hbo,
+            disney: this.state.disney,
+            other: this.state.other,
+        };
+        return (
+            <div className="router">
+                <main>
+                    <Switch>
+                        <Route
+                        exact
+                        path="/"
+                        component ={
+                            () => <Shows
+                            {...sharedProps}
+                            deleteShow={this.deleteShow}
+                            />
+                        }
+                        />
+                        <Route
+                        exact
+                        path="/newshow"
+                        component={
+                            () => <NewShow
+                                {...sharedProps}
+                                addShow={this.addShow}
+                                />   
+                        }
+                        />
+                    </Switch>
+                </main>
+            </div>
+        )
+    }
+};
+
+export default App;
 
