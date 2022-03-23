@@ -1,3 +1,4 @@
+const mongoosekey = require('./mongoosekey')
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
@@ -6,7 +7,7 @@ const PORT = 3000;
 
 
 // connect to mongoose
-mongoose.connect('mongodb+srv://jonathanluu17:17jonathanluu@cluster0.xwxsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(mongoosekey.password, { useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.connection.once('open', () => {
   console.log('Connected to Database');
 })
