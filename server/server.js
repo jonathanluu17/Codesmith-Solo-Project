@@ -30,7 +30,7 @@ app.use('/showdata', showRouter)
 
 // route handler for main app
 app.get('/', (req,res) => {
-    return res.sendFile(path.join(__dirname,"../index.html"));
+    return res.sendFile(path.join(__dirname,"../client/index.js"));
 })
 
 

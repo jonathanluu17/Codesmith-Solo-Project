@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 // import components & stylesheets here
-import Shows from './components/Shows';
-import NewShow from './components/NewShow';
+import Shows from './components/Shows.jsx';
+import NewShow from './components/NewShow.jsx';
 
 
 class App extends Component {
@@ -96,7 +96,7 @@ class App extends Component {
         return (
             <div className="router">
                 <main>
-                    <Switch>
+                    <Routes>
                         <Route
                         exact
                         path="/"
@@ -117,7 +117,7 @@ class App extends Component {
                                 />   
                         }
                         />
-                    </Switch>
+                    </Routes>
                 </main>
             </div>
         )
