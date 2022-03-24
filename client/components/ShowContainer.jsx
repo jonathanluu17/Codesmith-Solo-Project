@@ -1,6 +1,7 @@
+import factoryWithThrowingShims from 'prop-types/factoryWithThrowingShims';
 import React, { Component } from 'react';
 
-import ShowCard from './ShowCard';
+import ShowCard from './ShowCard.jsx';
 
 class ShowContainer extends Component {
     constructor(props){
@@ -8,8 +9,39 @@ class ShowContainer extends Component {
         // set state?
 
         // bind methods
-
+        this.deleteCard = this.deleteCard.bind(this);
     }
+
+    // set up remove button?
+    // needs to send a delete request to /showdata (responds with json object of show we remove)
+    // {showTitle: ... epNumber: ... streamPlat: ...}
+    // run this.props.deleteShow with the res object removed
+    deleteCard(showname) {
+        fetch(`/showdata/${showname}`, {
+            method: 'DELETE',
+            body: showname,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+         .then(res => res.json())
+         .then(parsedData => {
+            const newshowArr = this.props.allShows;
+            for (let i = 0; i < newshowArr; i++){
+                if (parsedData.showTitle === newshowArr[i].showTitle){
+                    newshowArr.splice(i,1);
+                };
+            }
+            this.props.deleteShow(newshowArr)
+            return window.location.reload()
+         })
+         .catch(err => console.log('deleteShow: ERROR: ', err)); 
+    }
+
+
+    // set up update episode number button
+
+
 
     render (){
         // Get date values and generate date object
@@ -49,10 +81,15 @@ class ShowContainer extends Component {
             epNumber = {showArr[i].epNumber}
             streamPlat = {showArr[i].streamPlat}
             newDate = {dateObj[showArr[i].newDate]}
-            deleteShow = {this.props.deleteShow}
+            deleteCard = {this.deleteCard}
+            platID = {this.props.platID}
             >
             </ShowCard>)
         }
+
+        // if (showCards.length === 0) return (
+        //     <div className = "noshowmessage">No shows available</div>
+        // )
         // return a special container for "out today"
         if (this.props.platID === 'today') return (
             <section className = "containersection">
@@ -64,8 +101,8 @@ class ShowContainer extends Component {
                 </div>
             </section>
         );
-
         return (
+
             <section className = "containersection">
                 <header className = "platformheader">
                     <h2>{this.props.platform}</h2>

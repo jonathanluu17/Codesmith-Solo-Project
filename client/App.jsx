@@ -28,24 +28,26 @@ class App extends Component {
 
     // on mount, send fetch request to our database to pull the shows
     // set our state within fetch request
-    componentDidMount() {
-        fetch('/showdata/', {
+   componentDidMount() {
+        fetch('/showdata', {
             method: 'GET',
             headers:{
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/x-www-form-urlencoded',
             }
         })
-        .then(res => {
-            const parsedData = JSON.parse(res);
-            const {netflix, hulu, hbo, disney, other} = this.sortShows(parsedData)
+        .then(res => res.json())
+        .then(parsedData => {
+            // const parsedData = Promise.resolve(res.json());
+            // console.log(parsedData)
+            const sortedPlatforms = this.sortShows(parsedData)
             return this.setState({
                 fetchedShows: true,
                 allShows: parsedData,
-                netflix,
-                hulu,
-                hbo,
-                disney,
-                other
+                netflix: sortedPlatforms.netflix,
+                hulu: sortedPlatforms.hulu,
+                hbo: sortedPlatforms.hbo,
+                disney: sortedPlatforms.disney,
+                other: sortedPlatforms.other
             })
         })
         .catch(err => console.log('App.componentDidMount: getshows: ERROR: ', err));
@@ -100,8 +102,8 @@ class App extends Component {
                         <Route
                         exact
                         path="/"
-                        component ={
-                            () => <Shows
+                        element = {
+                            <Shows
                             {...sharedProps}
                             deleteShow={this.deleteShow}
                             />
@@ -110,8 +112,8 @@ class App extends Component {
                         <Route
                         exact
                         path="/newshow"
-                        component={
-                            () => <NewShow
+                        element ={
+                            <NewShow
                                 {...sharedProps}
                                 addShow={this.addShow}
                                 />   

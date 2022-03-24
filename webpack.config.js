@@ -11,7 +11,7 @@ module.exports = {
         // compress: true,
         // port: 8080,
         proxy: {
-            '/api': 'http://localhost:3000'
+            '/showdata': 'http://localhost:3000'
         }
     },
     entry: '/client/index.js',

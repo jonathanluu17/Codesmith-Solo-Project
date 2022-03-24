@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const showSchema = new mongoose.Schema({
     showTitle: { type: String, required: true},
-    epNumber: { type: Number, required: true },
+    epNumber: { type: Number, required: true,  min: 1},
     streamPlat: { type: String, required: true },
     newDate: { type: Number, min: 0, max: 6}
 });
