@@ -68,15 +68,17 @@ class ShowCard extends Component {
 
     return (
         <article className = "showcard">
-            <div className = "showcardheadercontainer">
-                <div>
-                    <h3 className ="showtitle">{this.props.showTitle}</h3>
-                    <button
+        <div>
+            <button
                     type = "button"
                     className = "deletebutton"
                     onClick ={() => this.props.deleteCard(this.props.showTitle)}>
-                        Remove
-                    </button>
+                        X
+            </button>
+        </div>
+            <div className = "showcardheadercontainer">
+                <div>
+                    <h3 className ="showtitle">{this.props.showTitle}</h3>
                 </div>
             </div>
             {showDetailList}

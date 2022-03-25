@@ -105,31 +105,34 @@ class NewShow extends Component {
                         </button>
                     </Link>
                     <div className="newshowcontainer">
-                        <label htmlFor="nameinput">Title: </label>
-                        <input type="text" id="nameinput" name="nameinput" value={this.state.newTitle} onChange={this.handleTitleInput} /><br></br><br></br>
-                        <label htmlFor="platinput">Platform: </label>
-                        <select id="platinput" name="platinput" onChange={this.handlePlatInput}>
-                            <option value='netflix'>Netflix</option>
-                            <option value='hulu'>Hulu</option>
-                            <option value='hbo'>HBO</option>
-                            <option value='disney'>Disney+</option>
-                            <option value='other'>Other</option>
-                        </select><br></br><br></br>
-                        <label htmlFor="manualplat">Streaming On: </label>
-                        <input type="text" id="manualplat" name="manualplat" onChange={this.handlePlatInput}/><br></br><br></br>
-                        <label htmlFor="epinput">Episode Number: </label>
-                        <input type="number" id="epinput" name="epinput" value={this.state.newEpNum} onChange={this.handleEpInput} /><br></br><br></br>
-                        <label htmlFor="dateinput">Updates On: </label>
-                        <select id="dateinput" name="dateinput" onChange={this.handleDateInput}>
-                            <option value={null}>COMPLETED</option>
-                            <option value={0}>Sunday</option>
-                            <option value={1}>Monday</option>
-                            <option value={2}>Tuesday</option>
-                            <option value={3}>Wednesday</option>
-                            <option value={4}>Thursday</option>
-                            <option value={5}>Friday</option>
-                            <option value={6}>Saturday</option>
+                        <h3>New Show Details</h3>
+                        <div className="inputfields">
+                            <label htmlFor="nameinput">Title: </label>
+                            <input type="text" id="nameinput" name="nameinput" value={this.state.newTitle} onChange={this.handleTitleInput} /><br></br><br></br>
+                            <label htmlFor="platinput">Platform: </label>
+                            <select id="platinput" name="platinput" onChange={this.handlePlatInput}>
+                                <option value='netflix'>Netflix</option>
+                                <option value='hulu'>Hulu</option>
+                                <option value='hbo'>HBO</option>
+                                <option value='disney'>Disney+</option>
+                                <option value='other'>Other</option>
+                            </select><br></br><br></br>
+                            <label htmlFor="manualplat">Streaming On: </label>
+                            <input type="text" id="manualplat" name="manualplat" onChange={this.handlePlatInput}/><br></br><br></br>
+                            <label htmlFor="epinput">Episode Number: </label>
+                        <   input type="number" id="epinput" name="epinput" value={this.state.newEpNum} onChange={this.handleEpInput} /><br></br><br></br>
+                            <label htmlFor="dateinput">Updates On: </label>
+                            <select id="dateinput" name="dateinput" onChange={this.handleDateInput}>
+                                <option value={null}>COMPLETED</option>
+                                <option value={0}>Sunday</option>
+                                <option value={1}>Monday</option>
+                                <option value={2}>Tuesday</option>
+                                <option value={3}>Wednesday</option>
+                                <option value={4}>Thursday</option>
+                                <option value={5}>Friday</option>
+                                <option value={6}>Saturday</option>
                         </select>
+                        </div>
                     </div>
                     <div className="sendbuttoncontainer">
                         <button
@@ -153,29 +156,32 @@ class NewShow extends Component {
                     </button>
                 </Link>
                 <div className="newshowcontainer">
-                    <label htmlFor="nameinput">Title: </label>
-                    <input type="text" id="nameinput" name="nameinput" value={this.state.newTitle} onChange={this.handleTitleInput} /><br></br><br></br>
-                    <label htmlFor="platinput">Platform: </label>
-                    <select id="platinput" name="platinput" onChange={this.handlePlatInput}>
-                        <option value='netflix'>Netflix</option>
-                        <option value='hulu'>Hulu</option>
-                        <option value='hbo'>HBO</option>
-                        <option value='disney'>Disney+</option>
-                        <option value='other'>Other</option>
-                    </select><br></br><br></br>
-                    <label htmlFor="epinput">Episode Number: </label>
-                    <input type="number" id="epinput" name="epinput" value={this.state.newEpNum} onChange={this.handleEpInput} /><br></br><br></br>
-                    <label htmlFor="dateinput">Updates On: </label>
-                    <select id="dateinput" name="dateinput" onChange={this.handleDateInput}>
-                        <option value={null}>COMPLETED</option>
-                        <option value={0}>Sunday</option>
-                        <option value={1}>Monday</option>
-                        <option value={2}>Tuesday</option>
-                        <option value={3}>Wednesday</option>
-                        <option value={4}>Thursday</option>
-                        <option value={5}>Friday</option>
-                        <option value={6}>Saturday</option>
-                    </select>
+                    <h3>New Show Details</h3>
+                    <div className="inputfields">
+                        <label htmlFor="nameinput">Title: </label>
+                        <input type="text" id="nameinput" name="nameinput" value={this.state.newTitle} onChange={this.handleTitleInput} /><br></br><br></br>
+                        <label htmlFor="platinput">Platform: </label>
+                        <select id="platinput" name="platinput" onChange={this.handlePlatInput}>
+                            <option value='netflix'>Netflix</option>
+                            <option value='hulu'>Hulu</option>
+                            <option value='hbo'>HBO</option>
+                            <option value='disney'>Disney+</option>
+                         <option value='other'>Other</option>
+                        </select><br></br><br></br>
+                        <label htmlFor="epinput">Episode Number: </label>
+                        <input type="number" id="epinput" name="epinput" value={this.state.newEpNum} onChange={this.handleEpInput} /><br></br><br></br>
+                        <label htmlFor="dateinput">Updates On: </label>
+                        <select id="dateinput" name="dateinput" onChange={this.handleDateInput}>
+                            <option value={null}>COMPLETED</option>
+                            <option value={0}>Sunday</option>
+                            <option value={1}>Monday</option>
+                            <option value={2}>Tuesday</option>
+                            <option value={3}>Wednesday</option>
+                            <option value={4}>Thursday</option>
+                            <option value={5}>Friday</option>
+                            <option value={6}>Saturday</option>
+                        </select>
+                        </div>
                 </div>
                 <div className="sendbuttoncontainer">
                     <button

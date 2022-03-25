@@ -33,9 +33,6 @@ class Shows extends Component {
                         Add Show
                     </button>
                 </Link>
-                <header className="pageheader">
-                    <h1>All Shows</h1>
-                </header>
                 <div className="containerssectionMain">
                     <ShowContainer {...sharedProps} platform = "today" platID = "today"></ShowContainer>
                     <ShowContainer {...sharedProps} platform = "Netflix" platID = "netflix"></ShowContainer>

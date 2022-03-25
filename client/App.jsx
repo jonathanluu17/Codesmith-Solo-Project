@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 // import components & stylesheets here
 import Shows from './components/Shows.jsx';
 import NewShow from './components/NewShow.jsx';
-
+import './stylesheets/styles.css';
 
 class App extends Component {
     constructor(props) {
