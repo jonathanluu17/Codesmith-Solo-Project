@@ -85,13 +85,7 @@ class NewShow extends Component {
             newshowArr.push(parsedData)
             this.props.addShow(newshowArr)
             alert("Show Added!")
-            return this.setState({
-                    newTitle: '',
-                    newPlat: 'netflix',
-                    newEpNum: '',
-                    newDate: '',
-                    otherstatus: false
-            })
+            return window.location.reload()
         })
     }
     
