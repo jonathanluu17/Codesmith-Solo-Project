@@ -24,6 +24,7 @@ class App extends Component {
         this.sortShows = this.sortShows.bind(this);
         this.addShow = this.addShow.bind(this);
         this.deleteShow = this.deleteShow.bind(this);
+        this.updateShow = this.updateShow.bind(this);
     }
 
     // on mount, send fetch request to our database to pull the shows
@@ -79,6 +80,10 @@ class App extends Component {
         return this.setState({ allShows });
     }
 
+    updateShow(allShows){
+        return this.setState({allShows});
+    }
+
     // render
     render () {
         // show a loading page until shows are fetched
@@ -106,6 +111,7 @@ class App extends Component {
                             <Shows
                             {...sharedProps}
                             deleteShow={this.deleteShow}
+                            updateShow={this.updateShow}
                             />
                         }
                         />

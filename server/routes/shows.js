@@ -9,6 +9,9 @@ router.get('/', showController.getShows);
 router.post('/newshow', showController.addShow);
 
 // add show delete request
-router.delete('/:showtitle', showController.removeShow,);
+router.delete('/:showtitle', showController.removeShow);
+
+//add show update request
+router.post('/:showtitle', showController.updateShow);
 
 module.exports = router;

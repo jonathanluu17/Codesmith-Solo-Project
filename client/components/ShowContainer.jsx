@@ -10,6 +10,7 @@ class ShowContainer extends Component {
 
         // bind methods
         this.deleteCard = this.deleteCard.bind(this);
+        this.updateCard = this.updateCard.bind(this);
     }
 
     // set up remove button?
@@ -17,9 +18,21 @@ class ShowContainer extends Component {
     // {showTitle: ... epNumber: ... streamPlat: ...}
     // run this.props.deleteShow with the res object removed
     deleteCard(showname) {
+        // build our form body
+        const details = {
+            showTitle: showname
+        };
+        let formbody = [];
+        for (let property in details){
+            let encodedkey = encodeURIComponent(property)
+            let encodedvalue = encodeURIComponent(details[property])
+            formbody.push(encodedkey + "=" + encodedvalue)
+        };
+        formbody = formbody.join("&") 
+
         fetch(`/showdata/${showname}`, {
             method: 'DELETE',
-            body: showname,
+            body: formbody,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
@@ -40,7 +53,38 @@ class ShowContainer extends Component {
 
 
     // set up update episode number button
-
+    updateCard(showname, input){
+        const details = {
+            showTitle: showname,
+            action: input
+        };
+        let formbody = [];
+        for (let property in details){
+            let encodedkey = encodeURIComponent(property)
+            let encodedvalue = encodeURIComponent(details[property])
+            formbody.push(encodedkey + "=" + encodedvalue)
+        };
+        formbody = formbody.join("&")
+        
+        fetch(`/showdata/${showname}`, {
+            method: 'POST',
+            body: formbody,
+            headers:{
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        .then(res => res.json())
+        .then(parsedData => {
+            const newshowArr = this.props.allShows;
+            for (let i = 0; i < newshowArr; i++){
+                if (parsedData.showTitle === newshowArr[i].showTitle){
+                    newshowArr.splice(i, 1, parsedData);
+                };
+            }
+            this.props.updateShow(newshowArr)
+            return window.location.reload()
+        })
+    }
 
 
     render (){
@@ -82,6 +126,7 @@ class ShowContainer extends Component {
             streamPlat = {showArr[i].streamPlat}
             newDate = {dateObj[showArr[i].newDate]}
             deleteCard = {this.deleteCard}
+            updateCard = {this.updateCard}
             platID = {this.props.platID}
             >
             </ShowCard>)
