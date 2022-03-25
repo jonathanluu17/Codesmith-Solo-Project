@@ -12,7 +12,8 @@ module.exports = {
         // port: 8080,
         proxy: {
             '/showdata': 'http://localhost:3000'
-        }
+        },
+        historyApiFallback: true
     },
     entry: '/client/index.js',
     output: {

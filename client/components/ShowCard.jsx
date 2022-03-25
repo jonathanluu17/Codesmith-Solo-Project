@@ -27,7 +27,7 @@ class ShowCard extends Component {
         }
 
     let showDetailList;
-    if (this.props.platID === 'today'){
+    if (this.props.platID === 'today' && (this.props.streamPlat in converter)){
         showDetailList = (
             <ul className="showdetails">
                 <li className="showdetail">Streaming On: {converter[this.props.streamPlat]}</li>
@@ -36,7 +36,7 @@ class ShowCard extends Component {
             </ul>
         )
     }
-    else if (this.props.newDate && this.props.platID === 'other'){
+    else if ((this.props.newDate && this.props.platID === 'other') || (this.props.platID === 'today')){
         showDetailList = (
             <ul className="showdetails">
                 <li className="showdetail">Streaming On: {this.props.streamPlat}</li>
