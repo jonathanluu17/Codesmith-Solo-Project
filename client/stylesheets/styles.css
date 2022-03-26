@@ -13,7 +13,8 @@ body{
     padding-left: 1rem;
     padding-right: 1rem;
     background: rgb(22, 22, 22);
-    color: white;
+    color: rgba(255, 255, 255, 0.849);
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 
@@ -27,8 +28,8 @@ body{
 }
 
 .showcard{
-  background: black;
-  color: white;
+  background: rgb(59, 59, 59);
+  color: rgba(255, 255, 255, 0.788);
   padding: 1rem;
   border: 1px solid lightgray;
   box-shadow: 2px 2px 6px black;
@@ -36,6 +37,7 @@ body{
   display: grid;
   grid-row-gap: 1rem;
   margin: 0.5rem;
+  min-width: 200px;
 }
 
 .showcardheadercontainer{
@@ -45,8 +47,13 @@ body{
 }
 
 .deletebutton {
-
   float:right;
+}
+
+.updatebuttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .showtitle{
@@ -56,7 +63,7 @@ body{
 
 /* CONTAINERS */
 .containersection{
-  border: 1px solid rgb(250, 250, 250);
+  border: 1px solid rgba(250, 250, 250, 0.863);
   padding: 1rem;
   margin-top: 3px;
   box-shadow: 2px 2px 6px rgb(160, 155, 155);
@@ -75,11 +82,117 @@ body{
 
 .inputfields input{
   padding: 5px;
+  background-color: rgba(255, 255, 255, 0.788);
+}
+
+.inputfields select{
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.788);
 }
 
 .newshowcontainer{
   margin: 10px;
-  border: 1px solid rgb(250, 250, 250);
-  width: 100%;
+  border: 1px solid rgba(250, 250, 250, 0.788);
+  width: 25%;
   box-shadow: 2px 2px 6px rgb(160, 155, 155);
+  padding: 20px;
+}
+
+
+/* buttons */
+
+button{
+  border-radius: 5px;
+}
+
+.addshowbtn{
+  background-color: #73cf76;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.addshowbtn:hover{
+  background-color: #579b5a;
+  color: rgba(255, 255, 255, 0.616);
+}
+
+.backbutton{
+  background-color: #b96262;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.backbutton:hover{
+  background-color: #914d4d;
+  color: rgba(255, 255, 255, 0.562);
+}
+
+.deletebutton{
+  background-color: rgba(255, 255, 255, 0.788);
+  color: rgb(59, 59, 59);
+  border: none;
+  border-radius: 25%;
+}
+
+.deletebutton:hover{
+  background-color: rgba(145, 138, 138, 0.788);
+  color: rgba(255, 255, 255, 0.788);
+}
+
+.sendbutton{
+  background-color: #73cf76;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.sendbutton:hover{
+  background-color: #579b5a;
+  color: rgba(255, 255, 255, 0.582);
+}
+
+.plusbutton{
+  background-color: #478ae2;
+  border: none;
+  color: rgba(255, 255, 255, 0.849);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.plusbutton:hover{
+  background-color: #3465a5;
+  color: rgba(255, 255, 255, 0.479);
+}
+
+.minusbutton{
+  background-color: rgba(255, 255, 255, 0.849);
+  border: none;
+  color: #478ae2;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.minusbutton:hover{
+  background-color: rgba(255, 255, 255, 0.486);
+  color: #478ae2af;
 }

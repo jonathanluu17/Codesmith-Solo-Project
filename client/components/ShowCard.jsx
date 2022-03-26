@@ -31,8 +31,8 @@ class ShowCard extends Component {
         showDetailList = (
             <ul className="showdetails">
                 <li className="showdetail">Streaming On: {converter[this.props.streamPlat]}</li>
+                <li className="showdetail">Status: New Episodes {this.props.newDate}</li>
                 <li className="showdetail">Current Episode: {this.props.epNumber}</li>
-                <li className="showdetail">New Episodes out: {this.props.newDate}</li>
             </ul>
         )
     }
@@ -40,27 +40,29 @@ class ShowCard extends Component {
         showDetailList = (
             <ul className="showdetails">
                 <li className="showdetail">Streaming On: {this.props.streamPlat}</li>
+                <li className="showdetail">Status: New Episodes {this.props.newDate}</li>
                 <li className="showdetail">Current Episode: {this.props.epNumber}</li>
-                <li className="showdetail">New Episodes out: {this.props.newDate}</li>
             </ul>
         )
     } else if(!this.props.newDate && this.props.platID === 'other'){
         showDetailList=(
             <ul className="showdetails">
                 <li className="showdetail">Streaming On: {this.props.streamPlat}</li>
+                <li className="showdetail">Status: Complete</li>
                 <li className="showdetail">Current Episode: {this.props.epNumber}</li>
             </ul>
         )      
     } else if(this.props.newDate && this.props.platID !=='other'){
         showDetailList=(
             <ul className="showdetails">
+                <li className="showdetail">Status: New Episodes {this.props.newDate}</li>
                 <li className="showdetail">Current Episode: {this.props.epNumber}</li>
-                <li className="showdetail">New Episodes out: {this.props.newDate}</li>
             </ul>
         )   
     } else if (!this.props.newDate && this.props.platID !== 'other'){
         showDetailList=(
             <ul className="showdetails">
+                <li className="showdetail">Status: Complete</li>
                 <li className="showdetail">Current Episode: {this.props.epNumber}</li>
             </ul>
         )   

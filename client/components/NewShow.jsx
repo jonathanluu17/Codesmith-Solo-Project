@@ -64,6 +64,11 @@ class NewShow extends Component {
             streamPlat: this.state.newPlat,
             newDate: this.state.newDate
         };
+
+        if(!details.showTitle || !details.epNumber || !details.streamPlat){
+            return alert("Invalid Show Input")
+        }
+
         let formbody = [];
         for (let property in details){
             let encodedkey = encodeURIComponent(property)
